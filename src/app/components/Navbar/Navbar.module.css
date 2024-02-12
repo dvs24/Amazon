@@ -1,0 +1,17 @@
+.navBar{
+    display: flex;
+    align-items: center;
+}
+
+.logoImg{
+}
+
+
+.deliveryOption{
+
+}
+
+.country{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
