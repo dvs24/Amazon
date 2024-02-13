@@ -1,17 +1,51 @@
 .navBar{
     display: flex;
     align-items: center;
+    gap: 2rem;
+    width: 100%;
+    background-color: rgb(33, 28, 28);
+    box-sizing: border-box;
+    padding: 0.3rem 0.5rem;
 }
 
 .logoImg{
+    margin-top: -0.1rem;
+}
+.deliveryText,.signInText,.cartText, .markedText{
+    color: #fff;
 }
 
-
-.deliveryOption{
-
-}
-
-.country{
-    font-size: 1.3rem;
+.country, .favouritesText, .AccList, .cartText{
+    font-size: 1.1rem;
     font-weight: 600;
+    color: #fff;
 }
+
+.searchWrapper{
+    width: 50%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.searchInput{
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.625rem;
+    outline: none;
+}
+.searchBtn{
+    border-radius: 0.625rem;
+    outline: none;
+    background-color: rgb(236, 203, 40);
+    box-sizing: border-box;
+    padding: 0.3rem 0.8rem;
+}
+
+.cartWrapper{
+    display: flex;
+}
+
+.searchInput{
+    width: 100%;
+}
+
