@@ -7,7 +7,7 @@ import Image from "next/image";
 const SubNavbar = () => {
   return (
     <div className={styles.subNavbar}>
-        <Image src={menu} width={25} height = {25} />
+        <Image src={menu} width={25} height = {25} alt='' />
         <button className={styles.subNavbarBtn}>
             All
         </button>

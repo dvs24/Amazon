@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.logoImg}>
-        <Image src={logo} width={100} height={60} />
+        <Image src={logo} width={100} height={60} alt="" />
       </div>
 
       <div className={styles.textWrapper}>
@@ -35,7 +35,7 @@ const Navbar = () => {
       </div>
 
       <div className={styles.cartWrapper}>
-          <Image src={cart} width={30} height={20} />
+          <Image src={cart} width={30} height={20} alt="" />
         <div className={styles.cartText}>cart</div>
       </div>
     </div>
