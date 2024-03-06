@@ -3,8 +3,11 @@ import styles from "./Navbar.module.css";
 import Image from "next/image";
 import logo from "../../assets/logo.svg";
 import cart from "../../assets/cartIcon.png";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const itemList = useSelector((state) => state.homePage.itemList);
+
   return (
     <div className={styles.navBar}>
       <div className={styles.logoImg}>
@@ -35,8 +38,13 @@ const Navbar = () => {
       </div>
 
       <div className={styles.cartWrapper}>
-          <Image src={cart} width={30} height={20} alt="" />
+       
+        <Image src={cart} width={30} height={20} alt="" />
         <div className={styles.cartText}>cart</div>
+        {itemList.length > 0 && (
+
+        <div className={styles.cartNum}>{itemList?.length}</div>
+        )}
       </div>
     </div>
   );
