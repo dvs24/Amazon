@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import styles from "./Cards.module.css";
-import card1 from "../../assets/card1.webp";
-import card2 from "../../assets/card2.jpg";
-import card3 from "../../assets/card3.jpg";
-import card4 from "../../assets/card4.jpg";
-import card5 from "../../assets/card5.jpg";
+import styles from "./styles/Cards.module.css";
+import card1 from "../assets/card1.webp";
+import card2 from "../assets/card2.jpg";
+import card3 from "../assets/card3.jpg";
+import card4 from "../assets/card4.jpg";
+import card5 from "../assets/card5.jpg";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { addItemToList } from "../../redux/slices/homePageSlice.js";
+import { addItemToList } from "../redux/slices/homePageSlice.js";
 
 const Cards = () => {
   const dispatch = useDispatch();

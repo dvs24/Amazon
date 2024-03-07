@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './HomePage.module.css';
-import img1 from '../../assets/banner.jpg'
+import styles from './styles/HomePage.module.css';
+import img1 from '../assets/banner.jpg'
 import Image from 'next/image';
 
-import Cards from '../Cards/Cards';
+import Cards from './Cards';
 
 const HomePage = () => {
 

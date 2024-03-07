@@ -1,7 +1,7 @@
 'use client'
 import styles from "./page.module.css";
-import Navbar from "./components/Navbar/Navbar";
-import HomePage from "./components/HomePage/HomePage";
+import Navbar from "./pages/Navbar";
+import HomePage from "./pages/HomePage";
 import { Provider } from "react-redux";
 import {store} from "./redux/store.js"
 
