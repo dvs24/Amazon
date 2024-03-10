@@ -1,0 +1,29 @@
+.cart{
+    width: 100%;
+    height: 100vh;
+    background: #eaedfc;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.cartContainer{
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+
+.cartTitle{
+    font-size: 2rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eaedfc;
+    padding-bottom: 1rem;
+}
+
+.itemContainer{
+    display: flex;
+    gap: 2rem;
+}

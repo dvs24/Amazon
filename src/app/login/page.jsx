@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/LogIn.module.css";
+import styles from "./LogIn.module.css";
 import Image from "next/image";
 import logo from "../assets/amazon_logo.png";
 

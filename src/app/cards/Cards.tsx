@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./styles/Cards.module.css";
+import styles from "./Cards.module.css";
 import card1 from "../assets/card1.webp";
 import card2 from "../assets/card2.jpg";
 import card3 from "../assets/card3.jpg";
