@@ -1,26 +1,61 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import { useSelector } from "react-redux";
-import newImg from "../assets/card2.jpg";
+import { Provider } from "react-redux";
 import Image from "next/image";
+import { store } from "../redux/store";
 
 const Cart = () => {
+  // Check if window is defined (client-side) before using useSelector
+  const [allItemPrice, setAllItemPrice] = useState(0);
+  const itemList =
+    typeof window !== "undefined"
+      ? useSelector((state) => state.homePage.itemList)
+      : [];
 
-  // const itemList = useSelector((state) => state.homePage.itemList);
+  useEffect(() => {
+    if (itemList.length > 0) {
+      let totalPrices = 0;
+      itemList.forEach((item) => {
+        totalPrices += parseFloat(item.price); 
+      });
+      
+      setAllItemPrice(totalPrices);
+    }
+  }, [itemList]);
 
   return (
     <div className={styles.cart}>
       <div className={styles.cartContainer}>
         <div className={styles.cartTitle}>Shopping Cart</div>
-        <div className={styles.itemContainer}>
-          <Image src={newImg} alt="item" width={350} height={200} />
-          <div className={styles.infoContainer}>
-            <div className={styles.itemInfo}>
-              Lorem ipsum, dolor sit amet consectetur
-            </div>
-            <div className={styles.itemPrice}>₹ 3499</div>
-            <button className={styles.removeBtn}>Remove</button>
+        {itemList.length <= 0 ? (
+          <>
+            <div style={{ fontSize: "2rem" }}>No item selected</div>
+            <button className={styles.itemBtn}>Browse Items</button>
+          </>
+        ) : (
+          <div className={styles.itemMain}>
+            {itemList.map((item, index) => (
+              <div className={styles.itemContainer} key={index}>
+                <Image src={item.img} alt="item" width={350} height={250} className={styles.itemImg}/>
+                <div className={styles.infoContainer}>
+                  <div className={styles.itemInfo}>{item.title}</div>
+                  <div className={styles.itemPrice}>₹ {item.price}</div>
+                  <button className={styles.removeBtn}>Remove</button>
+                </div>
+              </div>
+            ))}
           </div>
+        )}
+      </div>
+
+      <div className={styles.allItmeInfo}>
+        <div className={styles.allItmeInfoWrapper}>
+          Subtotal ({itemList.length} Items) : ₹ {allItemPrice}
+        <button className={styles.checkoutBtn}>
+          Proceed to checkout
+        </button>
         </div>
       </div>
     </div>
