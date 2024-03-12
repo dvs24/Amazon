@@ -2,9 +2,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import { useSelector } from "react-redux";
-import { Provider } from "react-redux";
 import Image from "next/image";
-import { store } from "../redux/store";
+import Link from "next/link";
 
 const Cart = () => {
   // Check if window is defined (client-side) before using useSelector
@@ -18,9 +17,9 @@ const Cart = () => {
     if (itemList.length > 0) {
       let totalPrices = 0;
       itemList.forEach((item) => {
-        totalPrices += parseFloat(item.price); 
+        totalPrices += parseFloat(item.price);
       });
-      
+
       setAllItemPrice(totalPrices);
     }
   }, [itemList]);
@@ -38,7 +37,13 @@ const Cart = () => {
           <div className={styles.itemMain}>
             {itemList.map((item, index) => (
               <div className={styles.itemContainer} key={index}>
-                <Image src={item.img} alt="item" width={350} height={250} className={styles.itemImg}/>
+                <Image
+                  src={item.img}
+                  alt="item"
+                  width={350}
+                  height={250}
+                  className={styles.itemImg}
+                />
                 <div className={styles.infoContainer}>
                   <div className={styles.itemInfo}>{item.title}</div>
                   <div className={styles.itemPrice}>₹ {item.price}</div>
@@ -53,9 +58,9 @@ const Cart = () => {
       <div className={styles.allItmeInfo}>
         <div className={styles.allItmeInfoWrapper}>
           Subtotal ({itemList.length} Items) : ₹ {allItemPrice}
-        <button className={styles.checkoutBtn}>
-          Proceed to checkout
-        </button>
+          <Link href="/checkout">
+            <button className={styles.checkoutBtn}>Proceed to checkout</button>
+          </Link>
         </div>
       </div>
     </div>

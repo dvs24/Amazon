@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    itemList : []
+    itemList : [],
+    userInfo : {}
 }
 
 const homePageSlice = createSlice({
@@ -10,11 +11,14 @@ const homePageSlice = createSlice({
     reducers : {
         addItemToList : (state, action) => {
             state.itemList = [...state.itemList, action.payload]
+        },
+        addUserInfo : (state, action) => {
+            state.userInfo = action.payload;
         }
     }
 
 });
 
-export const {addItemToList} = homePageSlice.actions;
+export const {addItemToList, addUserInfo} = homePageSlice.actions;
 
 export default homePageSlice.reducer
