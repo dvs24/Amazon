@@ -64,7 +64,7 @@ const page = () => {
           <div className={styles.label}>State</div>
           <input className={styles.inputField} type="text" id="state" />
         </div>
-        <Link href="/payment">
+        <Link href="/payment" style={{textDecoration : 'none'}}>  
           <button onClick={handleAddInfo} className={styles.pageBtn}>
             Deliever to this address
           </button>
