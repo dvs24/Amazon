@@ -1,11 +1,13 @@
 .cart{
     min-height: 100vh;
     background: #eaedfc;
-    padding: 2rem;
+    
+    padding:6rem 2rem 2rem 2rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
 }
 
 .cartContainer{

@@ -9,15 +9,15 @@ import Link from "next/link";
 const Navbar = () => {
   const itemList = useSelector((state) => state.homePage.itemList);
 
-  const handleCartIcon = () => {
-
-  }
+  const handleCartIcon = () => {};
 
   return (
     <div className={styles.navBar}>
-      <div className={styles.logoImg}>
-        <Image src={logo} width={100} height={60} alt="" />
-      </div>
+      <Link href="/">
+        <button className={styles.logoImg}>
+          <Image src={logo} width={100} height={60} alt="" />
+        </button>
+      </Link>
 
       <div className={styles.textWrapper}>
         <div className={styles.deliveryText}>Delivery</div>
@@ -44,8 +44,8 @@ const Navbar = () => {
 
       <div className={styles.cartWrapper}>
         <Link href="/cart">
-        <Image src={cart} width={30} height={20} alt="" />
-        <div className={styles.cartText}>cart</div>
+          <Image src={cart} width={30} height={20} alt="" />
+          <div className={styles.cartText}>cart</div>
         </Link>
         {itemList.length > 0 && (
           <div className={styles.cartNum}>{itemList?.length}</div>
