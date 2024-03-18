@@ -1,24 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const proxy = "http://localhost:8000";
 const initialState = {
-    itemList : [],
-    userInfo : {}
-}
+  productsData: [],
+  itemList: [],
+  userInfo: {},
+};
 
-const homePageSlice = createSlice({
-    name : "homePage",
-    initialState,
-    reducers : {
-        addItemToList : (state, action) => {
-            state.itemList = [...state.itemList, action.payload]
-        },
-        addUserInfo : (state, action) => {
-            state.userInfo = action.payload;
-        }
-    }
+export const getProducts = createAsyncThunk("getProducts", async () => {
+  const response = await fetch(`${proxy}/products`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
+  const responseBody = await response.json();
+  return responseBody;
 });
 
-export const {addItemToList, addUserInfo} = homePageSlice.actions;
+const homePageSlice = createSlice({
+  name: "homePage",
+  initialState,
+  reducers: {
+    addItemToList: (state, action) => {
+      state.itemList = [...state.itemList, action.payload];
+    },
+    addUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getProducts.fulfilled, (state, action) => {
+      state.productsData = action.payload;
+    });
+  },
+});
 
-export default homePageSlice.reducer
+export const { addItemToList, addUserInfo } = homePageSlice.actions;
+
+export default homePageSlice.reducer;
